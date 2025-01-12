@@ -59,3 +59,21 @@ Looking at Graph 1 how well the model predicts like counts on social media posts
 
 key features - average like count per user, comment count, and timestamps - combined with log transformation to handle data skewness, resulted in a significant improvement in prediction accuracy, reducing our loss from 2667 to 597. While the model occasionally struggles with predicting exact numbers for viral content (45,000-60,000 likes range), this limitation is understandable given the unpredictable nature of viral success on social media.
 
+## Responsibilities
+Aksel Dindisyan, Muhammed Burak Gülümser
+- Mainly focused on the regression task
+- Explored the dataset and extracted useful features
+- Initially implemented Random Forest and kNN models
+- Afterwards switched to Gradient Boost for its effectiveness and efficiency
+- Implemented Log Transformations to surmount the imbalance in the like count data
+- Wrote down the findings in the report
+
+İbrahim Başar Demir, Ahmet Coşkun:
+- Mainly focused on the classification task
+- Explored the dataset and extracted useful features
+- Experimented with various approaches for the task before ending up with the final model
+- Experimented with different ensemble approaches to see which model can achieve the highest accuracy
+- Wrote down the findings in the report
+
+Keep in mind that the members participated in both tasks, and not only on their focused task.
+
