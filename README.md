@@ -22,6 +22,10 @@ At first, we used an ensemble model containing SVM, Naïve Bayes, and Random For
 We opted to use soft voting instead of hard voting in our ensemble, as we found that probabilities are useful for voting in our ensemble model.
 
 Lastly, while exploring the data, we realized that there are many overlappings between the instances in the training data and the test data, which meant that we had access to the ground truth for a portion of the predictions that we have to make. We added a couple lines of code to our model so that after the model is done with the predictions, the predictions for the overlapping instances are replaced with the ground truth.
+
+The confusion matrix for the predictions of the final model on the validation set is given below.
+![confusion matrix](media/confusionmatrix.png "Confusion Matrix")
+
 ## Regression Task
 
 
@@ -42,6 +46,7 @@ The main algorithm uses the **gradient boost** algorithm to predict the like cou
  - **average like count**
 
 Average like count and comments count are transformed using the log function to account for high values seen in the graph. When the final prediction is taken, the inverse log is used to extract real like count. 
+![like count distribution](media/like.png "Distribution  of Like Counts")
 
 #### Methodology for regression
 
@@ -53,7 +58,8 @@ Secondly, the parameters used in the GradientBoostingRegressor model are  chosen
 
 Overall, the model appears to perform reasonably well in predicting the like count for posts, although there are some notable discrepancies between predicted and actual values exist. While many predictions are close to the actual like counts, there are some significant errors where the model overestimates or underestimates the number of likes. These outliers indicate areas for improvement, especially in predicting extreme values. However, in general, the model seems to be capturing trends and providing useful predictions, though further adjustments could help fine-tune its accuracy.
 
-Looking at Graph 1 how well the model predicts like counts on social media posts, we can see some interesting patterns. The graph shows that most posts get relatively few likes, and the model does a good job of predicting this common pattern. When we look at the orange bars (predictions) compared to the blue bars (actual likes), they match quite well, especially for posts with lower like counts. The model seems to understand that viral posts are rare but possible. We can see this in the few cases where posts got between 45,000 to 60,000 likes. While the model didn't get these numbers exactly right, it did predict that some posts would reach these high numbers. What's most encouraging is how well the predictions work for everyday posts. Most content falls in the range of 0-10,000 likes, and here the model's predictions closely follow the real numbers. This means the model is most reliable for predicting typical engagement levels, which is what most users would care about. However, it's worth noting that predicting exact numbers for viral posts (those with very high like counts) is still challenging. This makes sense because viral success can be unpredictable and influenced by many factors that might be hard for the model to account for. Overall, the model shows promising accuracy for everyday predictions while maintaining a reasonable understanding of the possibility of viral success. This makes it a useful tool for understanding typical social media engagement patterns.
+![prediction distribution](media/prediction.png "Predictions and Actual Values")
+Looking at graph above how well the model predicts like counts on social media posts, we can see some interesting patterns. The graph shows that most posts get relatively few likes, and the model does a good job of predicting this common pattern. When we look at the orange bars (predictions) compared to the blue bars (actual likes), they match quite well, especially for posts with lower like counts. The model seems to understand that viral posts are rare but possible. We can see this in the few cases where posts got between 45,000 to 60,000 likes. While the model didn't get these numbers exactly right, it did predict that some posts would reach these high numbers. What's most encouraging is how well the predictions work for everyday posts. Most content falls in the range of 0-10,000 likes, and here the model's predictions closely follow the real numbers. This means the model is most reliable for predicting typical engagement levels, which is what most users would care about. However, it's worth noting that predicting exact numbers for viral posts (those with very high like counts) is still challenging. This makes sense because viral success can be unpredictable and influenced by many factors that might be hard for the model to account for. Overall, the model shows promising accuracy for everyday predictions while maintaining a reasonable understanding of the possibility of viral success. This makes it a useful tool for understanding typical social media engagement patterns.
 
  The model shows strong accuracy in predicting like counts for typical posts, which comprise the majority of Instagram content and fall within the 0-10,000 likes range.
 
@@ -76,4 +82,3 @@ Aksel Dindisyan, Muhammed Burak Gülümser
 - Wrote down the findings in the report
 
 Keep in mind that the members participated in both tasks, and not only on their focused task.
-
